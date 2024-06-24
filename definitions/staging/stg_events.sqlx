@@ -19,7 +19,7 @@ config {
   schema: constants.STAGING_DATASET,
   description: "Staging model for GA4 events_* table. Basic column casting and value extractions are performed here",
   bigquery: {
-    partitionBy: "event_date",
+    partitionBy: "DATE_TRUNC(event_date, MONTH)",
     clusterBy: ["user_pseudo_id", "ga_session_id"]
   }
 }

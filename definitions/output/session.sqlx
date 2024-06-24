@@ -18,7 +18,7 @@ config {
     schema: constants.OUTPUT_DATASET,
     description: "Sessions model, outputs one row per user session.",
     bigquery: {
-        partitionBy: "session_start_date",
+        partitionBy: "DATE_TRUNC(session_start_date, MONTH)",
         clusterBy: ["user_key", "ga_session_key"]
     }
 }

@@ -18,7 +18,7 @@ config {
     schema: constants.INTERMEDIATE_DATASET,
     description: "Intermediate model that updates staging events data.",
     bigquery: {
-        partitionBy: "event_date",
+        partitionBy: "DATE_TRUNC(event_date, MONTH)", 
         clusterBy: ["user_key", "ga_session_key"]
     }
 }
